@@ -86,7 +86,7 @@ while True:
     pos=a.pos()
 
     #Clearing the tracker info at each iteration to replace it with new one
-    tracker.clear()
+    #tracker.clear()
     
     # MOVE FORWARD
     if keyboard.is_pressed("up"):
@@ -125,12 +125,14 @@ while True:
             i=i+1 #At the press of 'e' change 'i' by 1, hence changing the pen color forward
         except:
             i=i
+        tracker.clear()
         continue;
     elif keyboard.is_pressed('q'):
         try:
             i=i-1 #At the press of 'q' change 'i' by -1, hence changing the pen color in reverse
         except:
             i=i
+        tracker.clear()
         continue;
 
     
@@ -166,6 +168,7 @@ while True:
             j=0
         else:
             j=j+1
+        tracker.clear()
     
     # QUIT
     elif keyboard.is_pressed("esc"):
@@ -188,6 +191,7 @@ while True:
             col=0
         else:
             col=col+1
+        tracker.clear()
 
     # SHOW MIRROR
     elif keyboard.is_pressed("m"):
@@ -226,4 +230,4 @@ while True:
         pass
 
     #WRITE ALL CHANGES TO TRACKER
-    tracker.write("Current Pen Color: "+current_colour+"\nCurrent BG Color: "+current_bg_color+"\nCurrent Fill Color: "+current_fill_color+"\nPosition: "+str(pos)+"\nHeading: "+str(a.heading())+"\nMirror position: "+str(image.pos()),font=('Arial',9,'normal'))
+    tracker.write("Current Pen Color: "+current_colour+"\nCurrent BG Color: "+current_bg_color+"\nCurrent Fill Color: "+current_fill_color,font=('Arial',9,'normal'))
