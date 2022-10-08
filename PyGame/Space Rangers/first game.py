@@ -29,12 +29,12 @@ SPACESHIP_HEIGHT=60
 BLUE_HIT = pygame.USEREVENT + 1
 RED_HIT = pygame.USEREVENT + 2
 
-BLUE_SPACESHIP_IMAGE=pygame.image.load(os.path.join('Assets','blue.png'))
-RED_SPACESHIP_IMAGE=pygame.image.load(os.path.join('Assets','red.png'))
+BLUE_SPACESHIP_IMAGE=pygame.image.load("./PyGame/Space Rangers/Assets/blue.png")
+RED_SPACESHIP_IMAGE=pygame.image.load("./PyGame/Space Rangers/Assets/red.png")
 BLUE_SPACESHIP=pygame.transform.rotate(pygame.transform.scale(BLUE_SPACESHIP_IMAGE,(SPACESHIP_WIDTH,SPACESHIP_HEIGHT)),270)
 RED_SPACESHIP=pygame.transform.rotate(pygame.transform.scale(RED_SPACESHIP_IMAGE,(SPACESHIP_WIDTH,SPACESHIP_HEIGHT)),90)
 
-SPACE = pygame.transform.scale(pygame.image.load("./Assets/space.png"),(WIDTH,HEIGHT))
+SPACE = pygame.transform.scale(pygame.image.load("./PyGame/Space Rangers/Assets/space.png"),(WIDTH,HEIGHT))
 
 BORDER=pygame.Rect((WIDTH/2) - 5,0,10,HEIGHT)
 
