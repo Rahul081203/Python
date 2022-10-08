@@ -31,7 +31,6 @@ class Node:
         self.width = width
         self.total_rows = total_rows
     
-    def get_position():
         
 
 
