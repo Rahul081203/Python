@@ -17,7 +17,7 @@ TURQUOISE=(64,224,208)
 CLOSED=(204,255,51)
 
 #PYGAME WINDOW
-WIN_SIDE=500
+WIN_SIDE=700
 WIN=pygame.display.set_mode((WIN_SIDE,WIN_SIDE))
 
 pygame.display.set_caption("A* PathFinder")
@@ -213,7 +213,7 @@ def main(win,width):
                     node.make_barrier()
 
             elif pygame.mouse.get_pressed()[2]:# if right mouse button clicked
-                pos = pygame.mouse.get_pressed()
+                pos = pygame.mouse.get_pos()
                 row, col=get_clicked_pos(pos,ROWS,width)
                 node=grid[row][col]
                 node.reset()
