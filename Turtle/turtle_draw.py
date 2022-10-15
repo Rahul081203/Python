@@ -35,9 +35,9 @@ for x in range(2):
     ins.fd(160)
     ins.rt(90)
 ins.penup()
-ins.setpos(-375,160)
+ins.setpos(-375,140)
 ins.pendown()
-ins.write("Pen color:'q'/'e'  BG color:'b'\nFill Color:'v'  Pen-up:'ctrl'\nPen-down:'tab' Movement:'Arrows'\nShow Mirror:'m'  Hide Mirror:'h'\nStart mirror_image:'i' \nStop mirror_image:'o'\nReset:'c' Begin_fill:'f'\nEnd_fill:'d'  Clear drawing:'ctrl+z'\nClear mirror_image:'n'")
+ins.write("Pen color:'q'/'e'  BG color:'b'\nFill Color:'v'  Pen-up:'ctrl'\nPen-down:'tab' Movement:'Arrows'\nShow Mirror:'m'  Hide Mirror:'h'\nStart mirror_image:'i' \nStop mirror_image:'o'\nReset:'c' Begin_fill:'f'\nEnd_fill:'d'  Clear drawing:'ctrl+z'\nClear mirror_image:'n'\nIncrease pen-size: 'w'\nDecrease pen-size: 's'")
 #Setting turtle speed to max
 a.speed(0)
 image.speed(0)
@@ -121,21 +121,30 @@ while True:
     
     # CHANGE PEN COLOR
     elif keyboard.is_pressed('e'):
-        try:
-            i=i+1 #At the press of 'e' change 'i' by 1, hence changing the pen color forward
-        except:
-            i=i
+        if i==len(colours)-1:
+            i=0
+        else:
+            i=i+1
         tracker.clear()
         continue;
     elif keyboard.is_pressed('q'):
-        try:
-            i=i-1 #At the press of 'q' change 'i' by -1, hence changing the pen color in reverse
-        except:
-            i=i
+        if i-1==-1:
+            i=len(colours)-1
+        else:
+            i=i-1
         tracker.clear()
         continue;
 
-    
+    # INCREASE PEN-SIZE
+    elif keyboard.is_pressed('w'):
+        size=a.pensize()+1
+        a.pensize(size)
+
+    # DECREASE PEN-SIZE
+    elif keyboard.is_pressed('s'):
+        size=a.pensize()-1
+        a.pensize(size)
+
     # PEN-UP
     elif keyboard.is_pressed("ctrl"):
         if keyboard.is_pressed('z'):
