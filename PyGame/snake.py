@@ -1,4 +1,5 @@
 import pygame
+import random
 
 #COLORS
 WHITE=(255,255,255)
@@ -6,6 +7,9 @@ BLACK=(0,0,0)
 BLUE=(0,0,255)
 GREEN=(0,255,0)
 RED=(255,0,0)
+
+
+INITIAL_POS=(350,350)
 
 
 #PYGAME WINDOW
@@ -29,7 +33,9 @@ class Node:
     def is_barrier(self):
         return self.color==BLACK or self.color==BLUE
 
-    def snake(self):
+    def is_snake(self):
+        return self.color==BLUE
+    def make_snake(self):
         self.color = BLUE
     def make_target(self):
         self.color = RED
@@ -64,18 +70,33 @@ def draw(win,grid,rows,width):
     draw_grid(win,rows,width)
     pygame.display.update()
 
+def get_pos(pos,rows,width):
+    gap=width//rows
+    y,x=pos
+    row=y//gap
+    col=x//gap
+    return row,col
+
+def target_pos():
+    return(random.randint(20,700),random.randint(20,700))
+
 def main(win,width):
     ROWS=50
     grid=make_grid(ROWS,width)
-    
+    started=False
     run=True
     while run:
         draw(win,grid,ROWS,width)
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
                 run=False
+            elif event.type==pygame.KEYDOWN:
+                if event.key==pygame.K_SPACE:
+                    started=True
+                
+                if event.key==pygame.K_UP:
+                    
     pygame.quit()
 
 if __name__=="__main__":
-    pos=
     main(WIN,WIDTH)
